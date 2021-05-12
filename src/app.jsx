@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import './app.css';
-// import Example from './component/example';
 import Hello from './component/hello';
 
 function App(){
@@ -11,8 +10,11 @@ function App(){
         name = 'sehoon'
         color = 'green'
         fontSize = '50px'
+        isSpecial = {true}
       />
-      <Hello />
+      <Hello 
+        isSpecial = {false}
+      />
     </>
   );
 }

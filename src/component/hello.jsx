@@ -16,7 +16,7 @@ const Hello = (props) => {
 
       return(
         <>
-          <h1 style={{color, fontSize:props.fontSize}}>{name}</h1>
+          <h1 style={{color, fontSize:props.fontSize}}>{name}{props.isSpecial&&<b>*</b>}</h1>
           <div className="gray-box"></div>
         </>
       );
