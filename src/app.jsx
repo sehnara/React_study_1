@@ -2,9 +2,11 @@ import { Component, useState } from 'react';
 import './app.css';
 import Counter from './component/counter';
 import Hello from './component/hello';
+import InputSample from './component/inputSample';
 
 function App(){
   const [count, setCount] = useState(1);
+  const [val, setVal] = useState('hello');
   
   const onIncrease = () =>{
     // 4. 함수형 업데이트
@@ -13,6 +15,10 @@ function App(){
   }
   const onDecrease = () =>{
     setCount(count => count-1);
+  }
+
+  const onValue=(value)=>{
+    setVal(val=>value);
   }
 
   return(
@@ -31,6 +37,11 @@ function App(){
         count = {count}
         onInc = {onIncrease}
         onDec = {onDecrease}
+      />
+      <br/>
+      <InputSample 
+        val = {val}
+        onVal = {onValue}
       />
     </>
   );
