@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Component, useState } from 'react';
 
 const InputSample = (props) => {
@@ -6,7 +6,9 @@ const InputSample = (props) => {
     name : 'sehoon',
     nick : 'king'
     });
-
+  
+    // 5. useRef() : vanila.js에서 DOM 요소를 가져오듯이, React에서는 Ref로 DOM 요소 자체를 땡겨올 수 있다.
+  const nameInput = useRef();
   const {name, nick} = inputs;
 
   const handleChange=(e)=>{
@@ -26,11 +28,13 @@ const InputSample = (props) => {
     newInputs.name = '';
     newInputs.nick = '';
     setInputs(inputs=> newInputs);
+
+    console.log(nameInput.current.value);
   }
 
   return(
     <>
-      <input placeholder="name" onChange={handleChange}/>
+      <input placeholder="name" onChange={handleChange} ref={nameInput}/>
       <input placeholder="nickName" onChange={handleChange}/>
       <button onClick={handleReset}>초기화</button>
       <div>
