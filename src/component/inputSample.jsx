@@ -1,24 +1,31 @@
 import React from 'react';
+import { Component, useState } from 'react';
 
 const InputSample = (props) => {
-  let a = 'didi';
-  // const inputRef = React.createRef();
+  const [name, setName] = useState('sehoon');
+  const [nick, setNick] = useState('shrimp');
 
   const handleChange =(e)=>{
-    props.onVal(e.target.value);
+    if(e.target.placeholder==='name'){
+      setName(name => e.target.value)
+    }
+    else(
+      setNick(nick => e.target.value)
+    )
   }
   const handleReset = ()=>{
-    props.onVal('');
+    setName('');
+    setNick('');
   }
 
   return(
     <>
-      <input
-        onChange={handleChange} // onChange : input의 값의 변화에 따라 사용가능
-      />
+      <input placeholder="name" onChange={handleChange}/>
+      <input placeholder="nickName" onChange={handleChange}/>
       <button onClick={handleReset}>초기화</button>
       <div>
-        <b>값 : {props.val}</b>
+        <b>값 : </b><br/>
+        {name}({nick})        
       </div>
     </>
   );

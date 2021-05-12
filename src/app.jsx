@@ -5,8 +5,7 @@ import Hello from './component/hello';
 import InputSample from './component/inputSample';
 
 function App(){
-  const [count, setCount] = useState(1);
-  const [val, setVal] = useState('hello');
+  const [count, setCount] = useState(1);  
   
   const onIncrease = () =>{
     // 4. 함수형 업데이트
@@ -16,10 +15,7 @@ function App(){
   const onDecrease = () =>{
     setCount(count => count-1);
   }
-
-  const onValue=(value)=>{
-    setVal(val=>value);
-  }
+  
 
   return(
     <>
@@ -39,9 +35,7 @@ function App(){
         onDec = {onDecrease}
       />
       <br/>
-      <InputSample 
-        val = {val}
-        onVal = {onValue}
+      <InputSample               
       />
     </>
   );
