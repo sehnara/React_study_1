@@ -2,20 +2,30 @@ import React from 'react';
 import { Component, useState } from 'react';
 
 const InputSample = (props) => {
-  const [name, setName] = useState('sehoon');
-  const [nick, setNick] = useState('shrimp');
+  const [inputs, setInputs] = useState({
+    name : 'sehoon',
+    nick : 'king'
+    });
 
-  const handleChange =(e)=>{
+  const {name, nick} = inputs;
+
+  const handleChange=(e)=>{
     if(e.target.placeholder==='name'){
-      setName(name => e.target.value)
+      const newInputs = {...inputs};
+      newInputs.name = e.target.value;
+      setInputs(inputs => newInputs);
     }
-    else(
-      setNick(nick => e.target.value)
-    )
+    else{
+      const newInputs = {...inputs};
+      newInputs.nick = e.target.value;
+      setInputs(inputs => newInputs);
+    }
   }
-  const handleReset = ()=>{
-    setName('');
-    setNick('');
+  const handleReset=(e)=>{
+    const newInputs = {...inputs};
+    newInputs.name = '';
+    newInputs.nick = '';
+    setInputs(inputs=> newInputs);
   }
 
   return(
