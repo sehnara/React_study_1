@@ -3,14 +3,18 @@ import './app.css';
 // import Example from './component/example';
 import Hello from './component/hello';
 
-class App extends Component {
-  render(){
-    return (
-      <>
-        <Hello />
-      </>
-    );
-  }  
+function App(){
+  
+  return(
+    <>
+      <Hello 
+        name = 'sehoon'
+        color = 'green'
+        fontSize = '50px'
+      />
+      <Hello />
+    </>
+  );
 }
 
 export default App;
